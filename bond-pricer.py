@@ -196,7 +196,7 @@ def main():
         )
 
     # Main content
-    tab1, tab2, tab3 = st.tabs(["Price Analysis", "Risk Metrics", "Cash Flows"])
+    tab1, tab2= st.tabs(["Price Analysis", "Risk Metrics"])
 
     # Calculate key metrics
     bond_price = round(bond_pricer(face_value, coupon_rate, years_to_maturity, discount_rate, payment_frequency), 2)
@@ -219,20 +219,27 @@ def main():
             st.metric("Periodic Payment ($)", f"{(face_value * coupon_rate / payments_per_year):,.2f}")
 
         # Price-Yield curve
+        col1, col2 = st.columns([1, 2])
         yields, prices = plot_yield_curve(bond_price, face_value, coupon_rate, years_to_maturity, payment_frequency)
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=yields*100, y=prices, mode='lines', name='Price-Yield Relationship'))
         fig.add_trace(go.Scatter(x=[discount_rate*100], y=[bond_price], 
                                mode='markers', name='Current Position',
                                marker=dict(size=10, color='red')))
-        
         fig.update_layout(
             title="Bond Price vs Yield",
             xaxis_title="Yield (%)",
             yaxis_title="Price ($)",
             height=400
         )
-        st.plotly_chart(fig, use_container_width=True)
+        col1, col2 = st.columns(2)  # Ensure both columns take equal space
+        with col1:
+            st.plotly_chart(fig, use_container_width=True)
+        with col2:
+            st.subheader("Cash Flow Analysis")
+            cashflow_fig = create_cashflow_diagram(face_value, coupon_rate, years_to_maturity, payment_frequency)
+            st.plotly_chart(cashflow_fig, use_container_width=False)  # Set to False for a more condensed view
+
 
     with tab2:
         st.subheader("Duration and Convexity Analysis")
@@ -262,10 +269,7 @@ def main():
             st.metric("Duration Effect", f"{duration_effect*100:.2f}%")
             st.metric("Convexity Effect", f"{convexity_effect*100:.2f}%")
 
-    with tab3:
-        st.subheader("Cash Flow Analysis")
-        cashflow_fig = create_cashflow_diagram(face_value, coupon_rate, years_to_maturity, payment_frequency)
-        st.plotly_chart(cashflow_fig, use_container_width=True)
+    # with tab3:
 
     # Footer with bond information
     st.markdown("---")
