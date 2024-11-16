@@ -166,11 +166,13 @@ def create_cashflow_diagram(face_value, coupon_rate, years_to_maturity, frequenc
 def main():
     st.set_page_config(page_title="Advanced Bond Pricing Calculator", page_icon="💵", layout="wide")
 
-    st.title("Advanced Bond Pricing Calculator")
+    st.title("Bond Pricing Calculator")
+    st.write("This calculator helps you analyze the price, yield, and risk metrics of a bond.")
+    st.write("You can also visualize the cash flows and price-yield relationship of the bond.")
 
     # Input Parameters
     with st.sidebar:
-        st.title("Bond Pricing Calculator")
+        st.title("💵 Bond Pricing Calculator")
         st.write("Created by")
         linkedin = "https://www.linkedin.com/in/pranavuppall"
         github = "https://github.com/upspal"
