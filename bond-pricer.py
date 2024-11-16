@@ -167,8 +167,7 @@ def main():
     st.set_page_config(page_title="Advanced Bond Pricing Calculator", page_icon="💵", layout="wide")
 
     st.title("Bond Pricing Calculator")
-    st.write("This calculator helps you analyze the price, yield, and risk metrics of a bond.")
-    st.write("You can also visualize the cash flows and price-yield relationship of the bond.")
+    st.write("This calculator helps you analyze the price, yield, and risk metrics of a bond. You can also visualize the cash flows and price-yield relationship of the bond.")
 
     # Input Parameters
     with st.sidebar:
