@@ -2,6 +2,9 @@
 
 An advanced bond pricing calculator built with Python and Streamlit that helps analyze bond prices, yields, and risk metrics.
 
+
+[Try it out here!](https://bond-price.streamlit.app/)
+
 ## Features
 
 - Bond price calculation with different payment frequencies (Annual, Semi-annual, Quarterly, Monthly)
