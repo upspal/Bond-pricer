@@ -174,8 +174,7 @@ def main():
         st.title("💵 Bond Pricing Calculator")
         st.write("Created by")
         linkedin = "https://www.linkedin.com/in/pranavuppall"
-        github = "https://github.com/upspal"
-        st.markdown(f'<a href="{linkedin}" target="_blank" style="text-decoration: none; color: inherit;"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="25" height="25" style="vertical-align: middle; margin-right: 10px;"></a><a href="{github}" target="_blank" style="text-decoration: none; color: inherit;"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png" width="25" height="25" style="vertical-align: middle; margin-right: 10px;">`Pranav Uppal`</a>', unsafe_allow_html=True)
+        st.markdown(f'<a href="{linkedin}" target="_blank" style="text-decoration: none; color: inherit;"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="25" height="25" style="vertical-align: middle; margin-right: 10px;">`Pranav Uppal`</a>', unsafe_allow_html=True)
         st.subheader("Bond Parameters")
         face_value = st.number_input("Face Value ($)", min_value=100, step=100, value=1000)
         coupon_rate = st.slider("Coupon Rate (%)", min_value=0.0, max_value=50.0, value=5.0, step=0.1) / 100
